@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title></title>
+</head>
+
+<body "p-3 mb-2 bg-primary text-white background-color:blue" >
+  <div class='container'>
+     <div class='row'>
+       <div class='column'>
+     <img src='logo.png' alt='default logo' height=50 width=50>  </img>
+       </div>
+         <div class='column'>
+     <h1>Weather Zone</h1>
+     </div>
+     </div
+  <h1>Today's date is <%=kindOfDay%></h1>
+  <!-- probably can delete -->
+  <div class="box" id="heading">
+    <h1><%= listTitle%></h1>
+  </div>
+  <!-- use the for loop to iterater through and add to list -->
+  <div class="box">
+
+    <%for(i=0;i<newListItem.length;i++){%>
+    <div class="item">
+      <input type="checkbox">
+      <p>list items!!!!</p>
+      <p><%=newListItem[i]%></p>
+    </div>
+    <%}%>
+
+    <div class="container">
+  <div class="row">
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+    <form class="item" action="/" method="post">
+    <!-- whenever using input the name is used to access the value -->
+    <!-- search bar for country -->
+    <div class="row">
+    <div class="col">
+    <input class="form-control"type="text" name="newItem" placeholder="Search Item">
+    <button type="submit" name="button">Search</button>
+    <input type="radio">
+    <input type="radio">
+
+    </div>
+
+  </div>
+
+  </form>
+  </div>
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><%= listTitle.list[0].main.temp%></h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+  <div class="card" style="width: 15rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= listTitle.list[1].main.temp%></h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+    </div>
+</div>
+<div class="col-sm">
+<div class="card" style="width: 15rem;">
+<div class="card-body">
+<h5 class="card-title"><%= listTitle.list[2].main.temp%></h5>
+<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+<a href="#" class="btn btn-primary">Go somewhere</a>
+</div>
+</div>
+</div>
+<div class="col-sm">
+<div class="card" style="width: 15rem;">
+<div class="card-body">
+<h5 class="card-title"><%= listTitle.list[3].main.temp%></h5>
+<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+<a href="#" class="btn btn-primary">Go somewhere</a>
+</div>
+</div>
+</div>
+<div class="col-sm">
+<div class="card" style="width: 15rem;">
+<div class="card-body">
+<h5 class="card-title"><%= listTitle.list[4].main.temp%></h5>
+<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+<a href="#" class="btn btn-primary">Go somewhere</a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+  </body>
+</html>
