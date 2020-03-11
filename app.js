@@ -19,8 +19,7 @@ var options={
 query="Sydney,Australia";
 units="metric";
 key="********************";
-//////////info for query
-// maybe add in API KEY
+///////API Key open weather map
 const url="https://api.openweathermap.org/data/2.5/forecast?q="+query+"&appid="+key+"&units="+units+"";
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
