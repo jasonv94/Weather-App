@@ -18,10 +18,9 @@ var options={
 ///////////////////////////////info for query
 query="Sydney,Australia";
 units="metric";
-key="9ea0171656c27a5884112d1c503edab8";
+key="********************";
 //////////info for query
 // maybe add in API KEY
-// http://api.openweathermap.org/data/2.5/forecast?q=Bali&appid=9ea0171656c27a5884112d1c503edab8&units=metric
 const url="https://api.openweathermap.org/data/2.5/forecast?q="+query+"&appid="+key+"&units="+units+"";
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
