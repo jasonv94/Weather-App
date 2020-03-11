@@ -1,0 +1,5 @@
+.diff-color{
+  background: rgb(121,122,158);
+background: radial-gradient(circle, rgba(121,122,158,1) 0%, rgba(16,94,186,1) 100%);
+
+}
