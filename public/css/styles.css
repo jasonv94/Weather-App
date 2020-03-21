@@ -3,3 +3,16 @@
 background: radial-gradient(circle, rgba(121,122,158,1) 0%, rgba(16,94,186,1) 100%);
 
 }
+h1{
+  font-family: 'Rubik', serif;
+  font-size: 48px;
+}
+h3{
+  font-family: 'Rubik', serif;
+  font-size: 24px;
+}
+
+h6{
+  font-family: 'Rubik', serif;
+  font-size: 12px;
+}
