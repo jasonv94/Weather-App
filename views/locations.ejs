@@ -10,17 +10,9 @@
 </head>
 
 <body class="diff-color">
-  <div class='container'>
-     <div class='row'>
-       <div class='column'>
-     <img src="/images/logo.png" alt='default logo' height=50 width=50>  </img>
-       </div>
-         <div class='column'>
-     <h1>Weather Zone</h1>
-     </div>
-   </div>
-  <h1>Today's date is <%=kindOfDay%> 2020</h1>
+  <%- include("header") -%>
   <!-- probably can delete -->
+  <br>
   <div class="box">
 
 
@@ -30,12 +22,14 @@
         <div class="col-6">
         <input class="form-control mr-sm-2" type="text" name="location" placeholder="New Item" autocomplete="off">
         </div>
-        <div class="col-6">
+        <div class="col-2">
         <button type="submit" name="list" class="btn btn-light"> Add Location</button>
         </div>
         </div>
-
+      <br>
       </form>
+      <div class="row">
+      <div class="col-8">
       <table class="table table-dark">
       <tbody>
       <%for(i of cities){%>
@@ -49,6 +43,8 @@
 
       <%}%>
       </table>
+  </div>
+  </div>
   </div>
   <!-- use the for loop to iterater through and add to list -->
 

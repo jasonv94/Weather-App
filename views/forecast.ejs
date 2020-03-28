@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+  <title></title>
+</head>
+
+<body class="diff-color">
+  <%- include("header") -%>
+
+  <div class="box">
+
+    <div class="item">
+      <br>
+      <h1><%=forecast[0].location%></h1>
+    </div>
+
+    <br>
+    <h1>4 Day Forecast</h1>
+  <div class="container">
+  <div class="row">
+    <div class="col-sm">
+  <div style="width: 15rem;">
+  <div class="card-body">
+    <!-- change name of testing to proper variable name -->
+    <h5 class="card-title"><%= Math.floor(forecast[0].temperature)%>°</h5>
+    <!-- added images -->
+    <img src="<%=imge[0]%>" alt="icon"></img>
+    <p class="card-text"><%= forecast[0].description%></p>
+    <a href="#" class="btn btn-primary"><%= forecast[0].datetime%></a>
+  </div>
+    </div>
+  </div>
+  <div class="col-sm">
+  <div style="width: 15rem;">
+  <div class="card-body">
+  <h5 class="card-title"><%= Math.floor(forecast[1].temperature)%>°</h5>
+  <img src="<%=imge[1]%>" alt="icon"></img>
+  <p class="card-text"><%= forecast[1].description %></p>
+  <a href="#" class="btn btn-primary"><%=forecast[1].datetime%></a>
+  </div>
+  </div>
+  </div>
+  <div class="col-sm">
+  <div style="width: 15rem;">
+  <div class="card-body">
+
+  <h5 class="card-title"><%= Math.floor(forecast[2].temperature)%>°</h5>
+  <img src="<%=imge[2]%>" alt="icon"></img>
+  <p class="card-text"><%= forecast[2].description %></p>
+  <a href="#" class="btn btn-primary"><%= forecast[2].datetime %></a>
+
+  </div>
+  </div>
+  </div>
+  <div class="col-sm">
+  <div style="width: 15rem;">
+  <div class="card-body">
+  <h5 class="card-title"><%= Math.floor(forecast[3].temperature)%>°</h5>
+  <img src="<%=imge[3]%>" alt="icon"></img>
+  <p class="card-text"><%= forecast[3].description %></p>
+  <a href="#" class="btn btn-primary"><%= forecast[3].datetime%></a>
+  </div>
+  </div>
+  </div>
+
+  </div>
+  </div>  </body>
+</html>

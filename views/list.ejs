@@ -11,62 +11,11 @@
   <title></title>
 </head>
 
+
 <body class="diff-color">
-  <div class='container'>
-    <div class='row'>
-      <div class='column'>
-        <img src="/images/logo.png" alt='default logo' height=50 width=50> </img>
-      </div>
-      <div class='column'>
-        <h1>Weather Zone</h1>
-      </div>
-    </div>
-    <h1>Today's date is <%=kindOfDay%> 2020</h1>
-    <!-- probably can delete -->
-    <div class="box" id="heading">
 
-    </div>
-    <!-- use the for loop to iterater through and add to list -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <%- include("header") -%>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/weathermap">WeatherMap</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about">4 Day Forecast</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/locations">My Locations</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-6" type="submit">Search</button>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="degrees" id="exampleRadios1" value="metric" checked onChange="this.form.submit()">
-            <label class="form-check-label" for="exampleRadios1">
-              Celsius
-            </label>
-          </div>
-          <br>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="degrees" id="exampleRadios2" value="imperial" onChange="this.form.submit()">
-            <label class="form-check-label" for="exampleRadios2">
-              Farenheit
-            </label>
-          </div>
-        </form>
-      </div>
-    </nav>
     <div class="box">
 
 
@@ -76,16 +25,16 @@
           <!-- whenever using input the name is used to access the value -->
           <!-- search bar for country -->
           <div class="row">
-            <div class="col">
-              <div class="md-form mt-0">
-                <input class="form-control" type="text" name="newItem" placeholder="Search Item">
-              </div>
+            <div class="col-4">
+
+              <input class="borderno diff-color" type="text" name="newItem" placeholder="Search Location" style=font-color:white>
+
 
               <button type="submit" name="button">Search</button>
               <label for="celsius">C</label>
-              <input type="radio" name='deg' value='C' placeholder="">
+              <input type="radio" name='deg' value='metric' placeholder="" checked>
               <label for="farenheit">F</label>
-              <input type="radio" name='deg' value='F' placeholder="">
+              <input type="radio" name='deg' value='imperial' placeholder="">
 
 
             </div>
@@ -99,12 +48,12 @@
       <div class="container">
         <div class='row'>
 
-          <div class="col-sm">
+          <div class="col-6">
             <h1 class="display-4"><%= Math.round(currForecast.temperature)%>°<img src="<%=weatherIcon%>" alt="icon"></img></h1>
             <h6>FEELS LIKE <%=Math.round(currForecast.feels_like)%>°</h6>
 
           </div>
-          <div class="col-sm">
+          <div class="col-6">
              <!-- location -->
             <h1><%=currForecast.location%></h1>
             <h3><%=currForecast.description%></h3>
@@ -113,9 +62,8 @@
           </div>
         </div>
       </div>
-      <!-- </div> -->
 
-    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

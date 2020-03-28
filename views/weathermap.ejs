@@ -7,41 +7,33 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/styles.css">
 
-  <style>
-    #map {
-      height: 1000px;
-      width: 5000px;
-    }
-  </style>
   <title>My first Leaflet example</title>
   <meta charset="utf-8">
 </head>
 
 <body class="diff-color">
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse"id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/weathermap">WeatherMap</a>
+          <a class="nav-link" href="/forecast">4 Day Forecast</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">4 Day Forecast</a>
-        </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="/locations">My Locations</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/weathermap">WeatherMap</a>
         </li>
       </ul>
         <div class="dropdown" aria-haspopup="true" aria-expanded="false">
           <form action="/weathermap" method="post">
-          <label for="cars">View Type:</label>
           <select name="mapType" id="mapType" onchange="this.form.submit()">
             <option default>Choose View</option>
             <option name="mapType" value="temp_new">Temperature</option>
@@ -62,7 +54,7 @@
 
   </div>
   <script>
-    var map = L.map('map').setView([49.0504,-122.3045], 10);
+    var map = L.map('map').setView([49.0504,-122.3045], 5);
     L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=4W6ASDAJiXonjB3GxPOe', {
       attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy;OpenStreetMap contributors</a>',
     }).addTo(map);
