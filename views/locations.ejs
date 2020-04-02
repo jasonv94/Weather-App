@@ -35,6 +35,7 @@
       <%for(i of cities){%>
       <td><%=i.city%></td>
       <td><%=Math.round(i.temp)%>°</td>
+      
       <td><form class="item" action="/delete" method="post">
           <button type="submit" name="delete" value="<%=i._id%>" class="btn btn-light">Remove</button>
         </form></td>
