@@ -9,7 +9,7 @@ const app = express();
 const mongoose = require('mongoose');
 //mongoose connection
 // "mongodb://localhost:27017/locationsDB"
-mongoose.connect("mongodb+srv://jasonv94:trigger44@cluster0-rpz2t.gcp.mongodb.net/locationsDB", {
+mongoose.connect("mongodb+srv://***********", {. //connected to MongoDB
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -27,10 +27,9 @@ var mapView = ["temp_new"];//default for map view
 const unit = ["metric"];//default units metric
 app.set('view engine', 'ejs');
 // app.use is used to access the HTML elements
-/////////////////////////////////date info
 
 
-// going to try and change the app so homepage is current weather we will use a new page for forecast
+
 var today = new Date();
 var options = {
   weekday: "long",
@@ -43,9 +42,8 @@ const currentDate = today.toLocaleDateString("en-US", options);
 //////////////////////////////date info
 ///////////////////////////////info for query
 units = "metric";
-key = "9ea0171656c27a5884112d1c503edab8";
+key = "***********";//free api key at openweathermap.org
 //////////info for query
-// maybe add in API KEY
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -216,7 +214,7 @@ app.post("/weathermap", function getViewType(req, res) {
   res.redirect("/weathermap");
 
 })
-
+//connect to heroku server
 let port = process.env.PORT;
 if(port== null|| port ==""){
   port=3000;
