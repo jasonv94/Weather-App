@@ -9,7 +9,7 @@ const app = express();
 const mongoose = require('mongoose');
 //mongoose connection
 // "mongodb://localhost:27017/locationsDB"
-mongoose.connect("mongodb+srv://***********", {. //connected to MongoDB
+mongoose.connect("mongodb+srv://jasonv94:trigger44@cluster0-rpz2t.gcp.mongodb.net/locationsDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -42,7 +42,7 @@ const currentDate = today.toLocaleDateString("en-US", options);
 //////////////////////////////date info
 ///////////////////////////////info for query
 units = "metric";
-key = "***********";//free api key at openweathermap.org
+key = "9ea0171656c27a5884112d1c503edab8";//free api key at openweathermap.org
 //////////info for query
 
 app.use(bodyParser.urlencoded({
@@ -222,6 +222,8 @@ if(port== null|| port ==""){
 app.listen(port,function() {
   console.log("running");
 })
-// app.listen(4000, function() {
-//   console.log("running");
-// })
+/*
+app.listen(4000, function() {
+  console.log("running");
+ })
+*/
