@@ -102,7 +102,7 @@ app.get("/", function getWeather(req, res) {
 
 
 });
-//post successful result from get based on required data
+//successful result from get based on required data
 app.post("/", function searchLocation(req, res) {
   // newItem is the name used in the html
   unit[0] = req.body.deg;
@@ -177,7 +177,7 @@ app.get("/locations", function getLocations(req, res) {
       res.render("locations",{cities:foundItems,kindOfDay:currentDate});
   })
 })
-//post all locations weather information after retrieving from API
+//all locations weather information after retrieving from API
 app.post("/locations", function removeLocation(req, res) {
   var city = req.body.location;
   const url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key + "&units=" + units + "";
@@ -201,7 +201,7 @@ app.post("/locations", function removeLocation(req, res) {
   })
 
 })
-//post response for sucessful deletion
+//response for sucessful deletion
 app.post("/delete", function deleteLocation(req, res) {
   const locationId = req.body.delete;
   Location.findByIdAndRemove(locationId, function(err) {
@@ -218,7 +218,7 @@ app.get("/weathermap", function getWeatherMap(req, res) {
     map_type: mapView[0]
   })
 })
-//post response for weather map info
+//response for weather map info
 app.post("/weathermap", function getViewType(req, res) {
   const type = req.body.mapType;
   mapView[0] = type;
