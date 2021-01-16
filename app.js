@@ -9,9 +9,9 @@ const app = express();
 const mongoose = require('mongoose');
 
 
-//mongoose connection
+//mongoose connection user info and pass blocked out
 // "mongodb://localhost:27017/locationsDB"
-mongoose.connect("mongodb+srv://jasonv94:trigger44@cluster0-rpz2t.gcp.mongodb.net/locationsDB", {
+mongoose.connect("mongodb+srv://**********@cluster0-rpz2t.gcp.mongodb.net/locationsDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
