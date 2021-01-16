@@ -8,6 +8,7 @@ const app = express();
 //mongoose db connection
 const mongoose = require('mongoose');
 
+
 //mongoose connection
 // "mongodb://localhost:27017/locationsDB"
 mongoose.connect("mongodb+srv://jasonv94:trigger44@cluster0-rpz2t.gcp.mongodb.net/locationsDB", {
