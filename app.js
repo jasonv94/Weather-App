@@ -7,9 +7,7 @@ const ForecastData= require("./forecastdata.js")//class for the forecast
 const app = express();
 //mongoose db connection
 const mongoose = require('mongoose');
-//
-const alert = require('alert'); 
-//
+const alert = require('alert');  
 //mongoose connection
 // "mongodb://localhost:27017/locationsDB"
 mongoose.connect("mongodb+srv://jasonv94:trigger44@cluster0-rpz2t.gcp.mongodb.net/locationsDB", {
@@ -32,7 +30,7 @@ app.set('view engine', 'ejs');
 // app.use is used to access the HTML elements
 
 
-//create date object use Date class
+
 var today = new Date();
 var options = {
   weekday: "long",
@@ -53,7 +51,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 //getWeather function used to get current weathermap
-
 app.get("/", function getWeather(req, res) {
 
   query = defaultLocation[0];
@@ -64,8 +61,6 @@ app.get("/", function getWeather(req, res) {
       console.log(req.body.deg);
       var weatherData = JSON.parse(data);
 
-      
-      //create weather object from parsed JSON data
       try {
         var currentWeather = new WeatherData(weatherData.name, weatherData.main.temp, weatherData.weather[0].main,
           weatherData.main.feels_like, weatherData.wind.speed, weatherData.main.humidity)
@@ -77,7 +72,7 @@ app.get("/", function getWeather(req, res) {
         var icon = "http://openweathermap.org/img/wn/" + imgsrc + "@2x.png"
       } catch (err) {
         icon = null;
-          //create error object if invalid location
+
         var current = {
           location: "Invalid Location",
           temperature: 1,
@@ -105,7 +100,6 @@ app.get("/", function getWeather(req, res) {
 
 
 });
-//successful result from get based on required data
 app.post("/", function searchLocation(req, res) {
   // newItem is the name used in the html
   unit[0] = req.body.deg;
@@ -115,10 +109,8 @@ app.post("/", function searchLocation(req, res) {
   defaultLocation.push(newLocation);
   res.redirect("/");
 });
-// forecast page get
-// getForecast 
-
-//get to retireve required forecast data
+// this is for forecast page hopefully will be used for that
+// getForecast added in we
 app.get("/forecast", function getForecast(req, res) { //look at adding objeect so instead of function it is object.function vs function
 
   query = defaultLocation[0];
@@ -163,7 +155,6 @@ app.get("/forecast", function getForecast(req, res) { //look at adding objeect s
   })
 
 });
-//send request to retrieve items in the db for stored locations and display
 app.get("/locations", function getLocations(req, res) {
 
   Location.find({},function(err,foundItems){
@@ -180,7 +171,6 @@ app.get("/locations", function getLocations(req, res) {
       res.render("locations",{cities:foundItems,kindOfDay:currentDate});
   })
 })
-//all locations weather information after retrieving from API
 app.post("/locations", function removeLocation(req, res) {
   var city = req.body.location;
   const url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key + "&units=" + units + "";
@@ -195,9 +185,9 @@ app.post("/locations", function removeLocation(req, res) {
           // console.log("entered new location")
         })
         location.save();
-        res.redirect("/locations")
+        res.redirect("/locations");
       } catch (err) {
-     
+        alert("Enter a Valid Location")
         res.redirect("/locations");
       }
 
@@ -205,7 +195,6 @@ app.post("/locations", function removeLocation(req, res) {
   })
 
 })
-//response for sucessful deletion
 app.post("/delete", function deleteLocation(req, res) {
   const locationId = req.body.delete;
   Location.findByIdAndRemove(locationId, function(err) {
@@ -216,13 +205,11 @@ app.post("/delete", function deleteLocation(req, res) {
   })
 })
 
-//send request for weather map info
 app.get("/weathermap", function getWeatherMap(req, res) {
   res.render("weathermap", {
     map_type: mapView[0]
   })
 })
-//response for weather map info
 app.post("/weathermap", function getViewType(req, res) {
   const type = req.body.mapType;
   mapView[0] = type;
@@ -230,15 +217,18 @@ app.post("/weathermap", function getViewType(req, res) {
 
 })
 //connect to heroku server
+
 let port = process.env.PORT;
 if(port== null|| port ==""){
   port=3000;
 }
+
 app.listen(port,function() {
   console.log("running");
 })
+
 /*
 app.listen(4000, function() {
   console.log("running");
  })
-*/
+ /*
