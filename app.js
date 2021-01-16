@@ -197,7 +197,7 @@ app.post("/locations", function removeLocation(req, res) {
         location.save();
         res.redirect("/locations")
       } catch (err) {
-        alert("please enter a valid location")
+     
         res.redirect("/locations");
       }
 
