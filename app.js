@@ -7,7 +7,7 @@ const ForecastData= require("./forecastdata.js")//class for the forecast
 const app = express();
 //mongoose db connection
 const mongoose = require('mongoose');
-const alert = require('alert');  
+
 //mongoose connection
 // "mongodb://localhost:27017/locationsDB"
 mongoose.connect("mongodb+srv://jasonv94:trigger44@cluster0-rpz2t.gcp.mongodb.net/locationsDB", {
@@ -187,7 +187,7 @@ app.post("/locations", function removeLocation(req, res) {
         location.save();
         res.redirect("/locations");
       } catch (err) {
-        alert("Enter a Valid Location")
+        console.log("Enter a Valid Location")
         res.redirect("/locations");
       }
 
