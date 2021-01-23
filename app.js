@@ -110,13 +110,13 @@ app.post("/", function searchLocation(req, res) {
   defaultLocation.push(newLocation);
   res.redirect("/");
 });
-// this is for forecast page hopefully will be used for that
-// getForecast added in we
-app.get("/forecast", function getForecast(req, res) { //look at adding objeect so instead of function it is object.function vs function
+
+//return forecast
+app.get("/forecast", function getForecast(req, res) { 
 
   query = defaultLocation[0];
   const url = "https://api.openweathermap.org/data/2.5/forecast?q=" + query + "&appid=" + key + "&units=" + unit[0] + "";
-  // const curl=https://api.openweathermap.org/data/2.5/weather?q=Toronto&appid=9ea0171656c27a5884112d1c503edab8&units=metric
+ 
   https.get(url, function(response) {
     response.on("data", function(data) {
       try{
@@ -156,6 +156,8 @@ app.get("/forecast", function getForecast(req, res) { //look at adding objeect s
   })
 
 });
+
+//return locations
 app.get("/locations", function getLocations(req, res) {
 
   Location.find({},function(err,foundItems){
