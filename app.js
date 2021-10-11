@@ -112,16 +112,26 @@ app.post("/", function searchLocation(req, res) {
 });
 
 //return forecast
-app.get("/forecast", function getForecast(req, res) { 
+app.get("/forecast", function getForecast(req, res){ 
 
   query = defaultLocation[0];
-  const url = "https://api.openweathermap.org/data/2.5/forecast?q=" + query + "&appid=" + key + "&units=" + unit[0] + "";
- 
+  const url = "https://api.openweathermap.org/data/2.5/forecast?q=" + query + "&appid=" + key + "&units=" + unit[0];
+
   https.get(url, function(response) {
-    response.on("data", function(data) {
+    let result = '';
+    response.on("data", function(data){
+      result += data;
+
+
+
+
+
+    });
+    response.on('end',()=>{
       try{
-      const weatherData = JSON.parse(data);
-      var currWeather = weatherData;
+
+      const weatherData = JSON.parse(result);
+
       var imgsrc = weatherData.list[0].weather[0].icon;
       var icon = "http://openweathermap.org/img/wn/" + imgsrc + "@2x.png"
       for (i = 0; i < weatherData.list.length; i++) {
@@ -136,7 +146,7 @@ app.get("/forecast", function getForecast(req, res) {
         }
       }
     }catch(err){
-      //throw error if invalid location
+      console.log(err)
       empty=[0,0,0,0]
       res.render("forecast", {
         imge:empty,
@@ -145,17 +155,19 @@ app.get("/forecast", function getForecast(req, res) {
 
       });
     }
-      res.render("forecast", {
+
+    res.render("forecast", {
         imge: weatherIcons,
         forecast: dayholder,
         kindOfDay:currentDate
 
       });
+    });
 
-    })
   })
 
 });
+
 
 //return locations
 app.get("/locations", function getLocations(req, res) {
